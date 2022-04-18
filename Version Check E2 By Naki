@@ -4,7 +4,7 @@
 if(first()){
     
     Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
-    VersionCheckLink = ""
+    VersionCheckLink = "https://raw.githubusercontent.com/4naki/coding-update-check-e2/main/version"
     Version = "1.0"
     
     runOnHTTP(1)
