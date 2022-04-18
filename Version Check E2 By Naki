@@ -1,34 +1,42 @@
-@name Version Check E2 By Naki
+@name GitHub HTTP Request Version Check Prototype
+#ifdef httpRequest(string)
 @persist [Version Link]:string Block
-
+#endif
 if(first()){
-    
-    Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
-    VersionCheckLink = "https://raw.githubusercontent.com/4naki/coding-update-check-e2/main/version"
-    Version = "1.0"
-    
-    runOnHTTP(1)
-    if(Link!=""){
-    }else{
-        print("Link is empty!")
-        Block=1
-    }
-    if(VersionCheckLink!=""){
-        httpRequest(VersionCheckLink)
-    }else{
-        print("VersionCheckLink is empty!")
-        Block=1
-    }
+    #ifdef httpRequest(string)
+        Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
+        VersionCheckLink = "https://raw.githubusercontent.com/4naki/coding-update-check-e2/main/version"
+        Version = "1.1"
+        
+        runOnHTTP(1)
+        if(Link!=""){
+        }else{
+            print("Link is empty!")
+            Block=1
+        }
+        if(VersionCheckLink!=""){
+            httpRequest(VersionCheckLink)
+        }else{
+            print("VersionCheckLink is empty!")
+            Block=1
+        }
+    #else
+        print("HTTP Core Not Found!")
+    #endif
 }
-if(httpSuccess()&!Block){
-    ReturnData=httpUrlDecode(httpData())
-    
-    print("["+entity():getName()+"]")
-    print("Running version: "+Version)
-    
-    if(Version!=ReturnData){
-        print("Update available!")
-        print("Latest version: "+ReturnData)
-        print("Link: "+Link)
+#ifdef httpRequest(string)
+    if(httpClk()){
+        if(httpSuccess()&!Block){
+            ReturnData=httpUrlDecode(httpData())
+            
+            print("["+entity():getName()+"]")
+            print("Running version: "+Version)
+            
+            if(Version:toNumber()!=ReturnData:toNumber()){
+                print("Update available!")
+                print("Latest version: "+ReturnData)
+                print("Link: "+Link)
+            }
+        }
     }
-}
+#endif
