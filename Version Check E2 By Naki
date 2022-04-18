@@ -3,7 +3,7 @@
 
 if(first()){
     
-    Link = ""
+    Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
     VersionCheckLink = ""
     Version = "1.0"
     
