@@ -6,7 +6,7 @@ if(first()){
     #ifdef httpRequest(string)
         Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
         VersionCheckLink = "https://raw.githubusercontent.com/4naki/coding-update-check-e2/main/version"
-        Version = "1.1"
+        Version = "1.2"
         
         runOnHTTP(1)
         if(Link!=""){
@@ -30,7 +30,7 @@ if(first()){
             ReturnData=httpUrlDecode(httpData())
             
             print("["+entity():getName()+"]")
-            print("Running version: "+Version)
+            print("Up to date! Running version: "+Version)
             
             if(Version:toNumber()!=ReturnData:toNumber()){
                 print("Update available!")
