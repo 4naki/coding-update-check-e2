@@ -6,7 +6,7 @@ if(first()){
     #ifdef httpRequest(string)
         Link = "https://github.com/4naki/coding-update-check-e2/blob/main/Version%20Check%20E2%20By%20Naki"
         VersionCheckLink = "https://raw.githubusercontent.com/4naki/coding-update-check-e2/main/version"
-        Version = "1.2"
+        Version = "1.3"
         
         #Used for development only!
         DevBranch=1
